@@ -1,0 +1,19 @@
+﻿<ResourceDictionary xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+                    xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+                    xmlns:local="clr-namespace:ColombianBalotoResults.Resources"
+                    xmlns:system="clr-namespace:System;assembly=mscorlib">
+    <!-- String resource that can be localized -->
+    <system:String x:Key="MainWindowTitle">Resultados del Baloto Colombiano</system:String>
+    <system:String x:Key="Label_Year">Obteniendo año</system:String>
+    <system:String x:Key="Button_GetData">Consultar datos</system:String>
+    <system:String x:Key="Button_Check">Verificar</system:String>
+    <system:String x:Key="Button_Duplicates">¿Hay duplicados?</system:String>
+    <system:String x:Key="String_IsResult">El número ya FUE resultado</system:String>
+    <system:String x:Key="String_IsNotResult">El número no ha sido resultado</system:String>
+    <system:String x:Key="String_CheckResult">Fecha: {0}Tipo: {1}Ganador: {2}</system:String>
+    <system:String x:Key="String_TypeNormal">Normal</system:String>
+    <system:String x:Key="String_TypeSecondChance">Revancha</system:String>
+    <system:String x:Key="String_Yes">Sí</system:String>
+    <system:String x:Key="String_No">No</system:String>
+    <system:String x:Key="String_DuplicatesResult">Duplicados normales: {0}Duplicados revancha: {1}Duplicados generales: {2}</system:String>
+</ResourceDictionary>

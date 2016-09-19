@@ -1,0 +1,14 @@
+﻿<Window x:Class="ColombianBalotoResults.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        Title="{DynamicResource ResourceKey=MainWindowTitle}" Height="350" Width="525" Icon="Content/baloto.ico">
+    <Grid>
+        <TextBox x:Name="txtNumber" HorizontalAlignment="Left" Height="23" Margin="130,37,0,0" TextWrapping="Wrap" VerticalAlignment="Top" Width="199"/>
+        <Label x:Name="lblResult" Content="Label" HorizontalAlignment="Left" Margin="130,92,0,0" VerticalAlignment="Top" Width="199" Foreground="#FFFB0000" Height="59"/>
+        <Button x:Name="btnCheck" Content="{DynamicResource ResourceKey=Button_Check}" HorizontalAlignment="Left" Margin="130,65,0,0" VerticalAlignment="Top" Width="199" Click="btnCheck_Click" IsEnabled="False"/>
+        <Button x:Name="btnGetData" Content="{DynamicResource ResourceKey=Button_GetData}" HorizontalAlignment="Left" Margin="130,10,0,0" VerticalAlignment="Top" Width="199" Click="btnGetData_Click"/>
+        <TextBlock x:Name="txbResults" HorizontalAlignment="Left" Margin="130,192,0,0" TextWrapping="Wrap" Text="TextBlock" VerticalAlignment="Top" Height="82" Width="199" Foreground="#FFFB0000"/>
+        <Button x:Name="btnDuplicates" Content="{DynamicResource ResourceKey=Button_Duplicates}" HorizontalAlignment="Left" Margin="130,288,0,0" VerticalAlignment="Top" Width="199" IsEnabled="False" Click="btnDuplicates_Click"/>
+
+    </Grid>
+</Window>
