@@ -5,6 +5,7 @@
     <!-- String resource that can be localized -->
     <system:String x:Key="MainWindowTitle">Colombian Baloto Results</system:String>
     <system:String x:Key="Label_Year">Getting year</system:String>
+    <system:String x:Key="Label_Done">Results gotten</system:String>
     <system:String x:Key="Button_GetData">Get data</system:String>
     <system:String x:Key="Button_Check">Check</system:String>
     <system:String x:Key="Button_Duplicates">Are there any duplicates?</system:String>

@@ -79,6 +79,7 @@ namespace ColombianBalotoResults
         {
             btnCheck.IsEnabled = true;
             btnDuplicates.IsEnabled = true;
+            lblResult.Content = FindResource("Label_Done").ToString();
         }
         
         /// <summary>

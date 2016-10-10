@@ -5,6 +5,7 @@
     <!-- String resource that can be localized -->
     <system:String x:Key="MainWindowTitle">Resultados del Baloto Colombiano</system:String>
     <system:String x:Key="Label_Year">Obteniendo año</system:String>
+    <system:String x:Key="Label_Done">Resultados obtenidos</system:String>
     <system:String x:Key="Button_GetData">Consultar datos</system:String>
     <system:String x:Key="Button_Check">Verificar</system:String>
     <system:String x:Key="Button_Duplicates">¿Hay duplicados?</system:String>

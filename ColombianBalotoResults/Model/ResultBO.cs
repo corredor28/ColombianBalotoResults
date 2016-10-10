@@ -15,12 +15,12 @@ namespace ColombianBalotoResults.Model
 {
     public class ResultBO
     {
-        private readonly SynchronizationContext _syncContext;
+        //private readonly SynchronizationContext _syncContext;
 
         public ResultBO()
         {
             // we assume this ctor is called from the UI thread!
-            _syncContext = SynchronizationContext.Current;
+            //_syncContext = SynchronizationContext.Current;
         }
 
         /// <summary>
