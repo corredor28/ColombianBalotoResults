@@ -1,4 +1,5 @@
-﻿using System;
+﻿using DataAccess;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Runtime.Serialization;
@@ -28,6 +29,18 @@ namespace DataService
                 composite.StringValue += "Suffix";
             }
             return composite;
+        }
+
+        public string[] GetResults()
+        {
+            var dataAccess = new DataReader();
+            return dataAccess.GetResults();
+        }
+
+        public string[] CheckNumber(string number)
+        {
+            var dataAccess = new DataReader();
+            return dataAccess.CheckNumber(number);
         }
     }
 }

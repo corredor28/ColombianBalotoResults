@@ -12,15 +12,26 @@ namespace DataService
     [ServiceContract]
     public interface IDataService
     {
-
         [OperationContract]
-        [WebInvoke(Method = "GET", UriTemplate = "DataTest/{value}", ResponseFormat = WebMessageFormat.Json)]
+        [WebInvoke(Method = "GET", UriTemplate = "Test/{value}", ResponseFormat = WebMessageFormat.Json)]
         string GetData(string value);
 
         [OperationContract]
         CompositeType GetDataUsingDataContract(CompositeType composite);
 
-        // TODO: Add your service operations here
+        /// <summary>
+        /// Gets all results and stores them in the database
+        /// </summary>
+        [OperationContract]
+        [WebInvoke(Method = "GET", UriTemplate = "Results", ResponseFormat = WebMessageFormat.Json)]
+        string[] GetResults();
+
+        /// <summary>
+        /// Gets information of a number from the database
+        /// </summary>
+        [OperationContract]
+        [WebInvoke(Method = "GET", UriTemplate = "Results/{number}", ResponseFormat = WebMessageFormat.Json)]
+        string[] CheckNumber(string number);
     }
 
 

@@ -1,4 +1,4 @@
-﻿namespace DataService
+﻿namespace DataAccess
 {
     /// <summary>
     /// Model for a record as shown in http://www.baloto.com/filtro-historico-de-resultados.php
