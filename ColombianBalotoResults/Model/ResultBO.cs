@@ -15,14 +15,6 @@ namespace ColombianBalotoResults.Model
 {
     public class ResultBO
     {
-        //private readonly SynchronizationContext _syncContext;
-
-        public ResultBO()
-        {
-            // we assume this ctor is called from the UI thread!
-            //_syncContext = SynchronizationContext.Current;
-        }
-
         /// <summary>
         /// Gets all results for a given year
         /// </summary>
@@ -112,45 +104,5 @@ namespace ColombianBalotoResults.Model
 
             return results;
         }
-
-        //private delegate void Updater(string target);
-        /*private void UpdateUI(string periodo)
-        {
-            //lblResult.Content = "Consultando año " + periodo;
-            
-        }*/
-        /*
-        private void UpdateUI(string year)
-        {
-            _syncContext.Post(new SendOrPostCallback((o) => {
-                UpdateYearLabel(year);
-            }), null);
-        }
-
-        /// <summary>
-        /// Gets results since 2001 and saves them to a JSON file
-        /// </summary>
-        public void SaveResultsToJSON(List<Result> results)
-        {
-            // Get result list since 2001
-            for (int i = 2000; i < DateTime.Now.Year; i++)
-            {
-                var year = Convert.ToString(i + 1);
-                Updater uiUpdater = new Updater(UpdateUI);
-                Dispatcher.BeginInvoke(DispatcherPriority.Send, uiUpdater, year);
-                GetResultsByYear(year).ToList();
-            }
-
-            // Save results to JSON file
-            File.Move(@"historic_data.json", @"historic_data_b.json");
-            using (FileStream fs = File.Open(@"historic_data.json", FileMode.Create))
-            using (StreamWriter sw = new StreamWriter(fs))
-            using (JsonWriter jw = new JsonTextWriter(sw))
-            {
-                jw.Formatting = Formatting.Indented;
-                JsonSerializer serializer = new JsonSerializer();
-                serializer.Serialize(jw, results);
-            }
-        }*/
     }
 }

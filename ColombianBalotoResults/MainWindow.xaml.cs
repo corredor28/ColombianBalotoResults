@@ -52,7 +52,7 @@ namespace ColombianBalotoResults
                 var year = Convert.ToString(i + 1);
                 Updater uiUpdater = new Updater(UpdateYearLabel);
                 Dispatcher.BeginInvoke(DispatcherPriority.Send, uiUpdater, year);
-                results = resultBO.GetResultsByYear(year).ToList();
+                results.AddRange(resultBO.GetResultsByYear(year));
             }
 
             // Save result as a JSON file

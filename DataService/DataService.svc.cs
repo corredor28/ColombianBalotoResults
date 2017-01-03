@@ -1,11 +1,5 @@
 ﻿using DataAccess;
 using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
-using System.ServiceModel;
-using System.ServiceModel.Web;
-using System.Text;
 
 namespace DataService
 {
@@ -13,34 +7,44 @@ namespace DataService
     // NOTE: In order to launch WCF Test Client for testing this service, please select Service1.svc or Service1.svc.cs at the Solution Explorer and start debugging.
     public class DataService : IDataService
     {
-        public string GetData(string value)
+        /*public string GetData(string value)
         {
             return string.Format("You entered: {0}", value);
         }
 
-        public CompositeType GetDataUsingDataContract(CompositeType composite)
+        public ResultType GetDataUsingDataContract(ResultType composite)
         {
             if (composite == null)
             {
                 throw new ArgumentNullException("composite");
             }
-            if (composite.BoolValue)
+            if (composite.Status)
             {
-                composite.StringValue += "Suffix";
+                composite.Message += "Suffix";
             }
             return composite;
+        }*/
+
+        /// <summary>
+        /// Converts a string array to base result type
+        /// </summary>
+        private ResultType ConvertToResultType(string[] array)
+        {
+            return new ResultType() { status = Convert.ToBoolean(array[0]), message = array[1] };
         }
 
-        public string[] GetResults()
+        public ResultType GetResults()
         {
             var dataAccess = new DataReader();
-            return dataAccess.GetResults();
+            var result = dataAccess.GetResults();
+            return ConvertToResultType(result);
         }
 
-        public string[] CheckNumber(string number)
+        public ResultType CheckNumber(string number)
         {
             var dataAccess = new DataReader();
-            return dataAccess.CheckNumber(number);
+            var result = dataAccess.CheckNumber(number);
+            return ConvertToResultType(result);
         }
     }
 }

@@ -56,7 +56,7 @@ namespace DataAccess
                 for (int i = 2000; i < DateTime.Now.Year; i++)
                 {
                     var year = Convert.ToString(i + 1);
-                    results = resultBO.GetResultsByYear(year).ToList();
+                    results.AddRange(resultBO.GetResultsByYear(year));
                 }
 
                 // Save result as a JSON file
@@ -69,11 +69,13 @@ namespace DataAccess
                     JsonSerializer serializer = new JsonSerializer();
                     serializer.Serialize(jw, results);
                 }
-                methodResult[0] = Resources.Label_Done;
+                methodResult[0] = true.ToString();
+                methodResult[1] = Resources.Label_Done;
             }
             catch (Exception ex)
             {
-                methodResult[0] = ex.Message;
+                methodResult[0] = false.ToString();
+                methodResult[1] = ex.Message;
             }
 
             return methodResult;
@@ -102,7 +104,7 @@ namespace DataAccess
                     results = (List<Result>)serializer.Deserialize(file, typeof(List<Result>));
                 }
 
-                methodResult[1] = string.Empty;
+                //methodResult[1] = string.Empty;
                 var typedNumber = String.Join("-", number.Split('-').Select(n => n.Trim()).OrderBy(n => n));
 
                 // Compare typed number against list
@@ -135,13 +137,14 @@ namespace DataAccess
 
                 if (isNumber)
                 {
-                    methodResult[0] = Resources.String_IsResult; //FindResource("String_IsResult").ToString();
+                    methodResult[0] = true.ToString();
+                    methodResult[1] = Resources.String_IsResult + Environment.NewLine; // FindResource("String_IsResult").ToString();
                     var result = results.FirstOrDefault(n => n.Id == resultId);
                     var textNormal = Resources.String_TypeNormal;
                     var textSecondChance = Resources.String_TypeSecondChance;
                     var textYes = Resources.String_Yes;
                     var textNo = Resources.String_No;
-                    methodResult[1] = String.Format(Resources.String_CheckResult // Date: {0}Type: {1}Winner: {2}
+                    methodResult[1] += String.Format(Resources.String_CheckResult // Date: {0}Type: {1}Winner: {2}
                                                     , result.Date + Environment.NewLine
                                                     , (isSecondChanceNumber ? textSecondChance : textNormal) + Environment.NewLine
                                                     , isWinner ? textYes : textNo
@@ -149,12 +152,14 @@ namespace DataAccess
                 }
                 else
                 {
-                    methodResult[0] = Resources.String_IsNotResult;
+                    methodResult[0] = true.ToString();
+                    methodResult[1] = Resources.String_IsNotResult;
                 }
             }
             catch (Exception ex)
             {
-                methodResult[0] = ex.Message;
+                methodResult[0] = false.ToString();
+                methodResult[1] = ex.Message;
             }
 
             return methodResult;

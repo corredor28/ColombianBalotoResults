@@ -1,10 +1,6 @@
-﻿using System;
-using System.Collections.Generic;
-using System.Linq;
-using System.Runtime.Serialization;
+﻿using System.Runtime.Serialization;
 using System.ServiceModel;
 using System.ServiceModel.Web;
-using System.Text;
 
 namespace DataService
 {
@@ -12,48 +8,48 @@ namespace DataService
     [ServiceContract]
     public interface IDataService
     {
-        [OperationContract]
+        /*[OperationContract]
         [WebInvoke(Method = "GET", UriTemplate = "Test/{value}", ResponseFormat = WebMessageFormat.Json)]
         string GetData(string value);
 
         [OperationContract]
-        CompositeType GetDataUsingDataContract(CompositeType composite);
+        ResultType GetDataUsingDataContract(ResultType composite);*/
 
         /// <summary>
         /// Gets all results and stores them in the database
         /// </summary>
         [OperationContract]
         [WebInvoke(Method = "GET", UriTemplate = "Results", ResponseFormat = WebMessageFormat.Json)]
-        string[] GetResults();
+        ResultType GetResults();
 
         /// <summary>
         /// Gets information of a number from the database
         /// </summary>
         [OperationContract]
         [WebInvoke(Method = "GET", UriTemplate = "Results/{number}", ResponseFormat = WebMessageFormat.Json)]
-        string[] CheckNumber(string number);
+        ResultType CheckNumber(string number);
     }
 
 
     // Use a data contract as illustrated in the sample below to add composite types to service operations.
     [DataContract]
-    public class CompositeType
+    public class ResultType
     {
-        bool boolValue = true;
-        string stringValue = "Hello ";
+        bool _status = true;
+        string _message = "Hello ";
 
         [DataMember]
-        public bool BoolValue
+        public bool status
         {
-            get { return boolValue; }
-            set { boolValue = value; }
+            get { return _status; }
+            set { _status = value; }
         }
 
         [DataMember]
-        public string StringValue
+        public string message
         {
-            get { return stringValue; }
-            set { stringValue = value; }
+            get { return _message; }
+            set { _message = value; }
         }
     }
 }
